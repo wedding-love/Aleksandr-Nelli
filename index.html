@@ -1105,139 +1105,220 @@
 
   <script>
     (function() {
-      const track = document.getElementById('sliderTrack');
-      const btn = document.getElementById('sliderBtn');
-      const callScreen = document.getElementById('callScreen');
-      const invScreen = document.getElementById('invScreen');
+      // Проверка поддержки основных функций
+      if (!document.getElementById || !window.addEventListener) {
+        console.warn('Браузер не поддерживает необходимые функции');
+        return;
+      }
+
+      var track = document.getElementById('sliderTrack');
+      var btn = document.getElementById('sliderBtn');
+      var callScreen = document.getElementById('callScreen');
+      var invScreen = document.getElementById('invScreen');
       
-      let isDragging = false;
-      let startX = 0, currentX = 0, maxSlide = 0;
+      // Проверка наличия элементов
+      if (!track || !btn || !callScreen || !invScreen) {
+        console.warn('Не все необходимые элементы найдены');
+        return;
+      }
+
+      var isDragging = false;
+      var startX = 0, currentX = 0, maxSlide = 0;
 
       function updateMaxSlide() {
-        if (track && btn) maxSlide = track.offsetWidth - btn.offsetWidth - 12;
+        if (track && btn) {
+          maxSlide = track.offsetWidth - btn.offsetWidth - 12;
+        }
       }
+      
       window.addEventListener('load', updateMaxSlide);
       window.addEventListener('resize', updateMaxSlide);
 
-      function getX(e) { return e.type.includes('mouse') ? e.pageX : e.touches[0].clientX; }
+      function getX(e) { 
+        return e.type.indexOf('mouse') !== -1 ? e.pageX : (e.touches && e.touches[0] ? e.touches[0].clientX : 0);
+      }
 
       function onDragStart(e) {
         e.preventDefault();
         isDragging = true;
         startX = getX(e);
-        btn.style.transition = 'none';
+        if (btn) btn.style.transition = 'none';
       }
+      
       function onDragMove(e) {
         if (!isDragging) return;
         if (e.type === 'touchmove') e.preventDefault();
-        let walk = getX(e) - startX;
+        var walk = getX(e) - startX;
         if (walk < 0) walk = 0;
         if (walk > maxSlide) walk = maxSlide;
         currentX = walk;
-        btn.style.transform = `translateX(${currentX}px)`;
+        if (btn) btn.style.transform = 'translateX(' + currentX + 'px)';
       }
+      
       function onDragEnd() {
         if (!isDragging) return;
         isDragging = false;
         if (currentX >= maxSlide - 20) {
-          btn.style.transition = 'transform 0.2s ease-out';
-          btn.style.transform = `translateX(${maxSlide}px)`;
+          if (btn) {
+            btn.style.transition = 'transform 0.2s ease-out';
+            btn.style.transform = 'translateX(' + maxSlide + 'px)';
+          }
           acceptCall();
         } else {
-          btn.style.transition = 'transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)';
-          btn.style.transform = `translateX(0px)`;
+          if (btn) {
+            btn.style.transition = 'transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)';
+            btn.style.transform = 'translateX(0px)';
+          }
           currentX = 0;
         }
       }
+      
       function acceptCall() {
-        setTimeout(() => {
+        setTimeout(function() {
           if (callScreen) {
             callScreen.style.opacity = '0';
             callScreen.style.visibility = 'hidden';
           }
-          setTimeout(() => {
+          setTimeout(function() {
             if (invScreen) {
               invScreen.classList.add('active');
-              requestAnimationFrame(() => {
+              setTimeout(function() {
                 handleScrollAnimation();
-              });
+              }, 100);
             }
           }, 400);
         }, 150);
       }
 
-      btn.addEventListener('touchstart', onDragStart, {passive: false});
+      // Добавляем обработчики событий с проверкой
+      if (btn) {
+        btn.addEventListener('touchstart', onDragStart, {passive: false});
+        btn.addEventListener('mousedown', onDragStart);
+      }
+      
       document.addEventListener('touchmove', onDragMove, {passive: false});
       document.addEventListener('touchend', onDragEnd);
-      btn.addEventListener('mousedown', onDragStart);
       document.addEventListener('mousemove', onDragMove);
       document.addEventListener('mouseup', onDragEnd);
 
-      function isElementInViewport(el, offset = 0.15) {
-        const rect = el.getBoundingClientRect();
-        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      function isElementInViewport(el, offset) {
+        if (!el) return false;
+        offset = offset || 0.15;
+        var rect = el.getBoundingClientRect();
+        var windowHeight = window.innerHeight || document.documentElement.clientHeight;
         return rect.top <= windowHeight * (1 - offset) && rect.bottom >= 0;
       }
 
       function handleScrollAnimation() {
-        const fadeElements = document.querySelectorAll('.fade-in-element:not(.visible)');
-        const fadeImages = document.querySelectorAll('.fade-in-image:not(.visible)');
+        var fadeElements = document.querySelectorAll('.fade-in-element:not(.visible)');
+        var fadeImages = document.querySelectorAll('.fade-in-image:not(.visible)');
         
-        fadeElements.forEach(el => {
-          if (isElementInViewport(el, 0.2)) {
-            el.classList.add('visible');
+        for (var i = 0; i < fadeElements.length; i++) {
+          if (isElementInViewport(fadeElements[i], 0.2)) {
+            fadeElements[i].classList.add('visible');
           }
-        });
+        }
         
-        fadeImages.forEach(el => {
-          if (isElementInViewport(el, 0.25)) {
-            el.classList.add('visible');
+        for (var j = 0; j < fadeImages.length; j++) {
+          if (isElementInViewport(fadeImages[j], 0.25)) {
+            fadeImages[j].classList.add('visible');
           }
-        });
+        }
       }
 
       if (invScreen) {
         invScreen.addEventListener('scroll', handleScrollAnimation, { passive: true });
       }
 
-      const allergyRadios = document.querySelectorAll('input[name="allergy"]');
-      const allergyDetailsGroup = document.getElementById('allergyDetailsGroup');
+      // Логика для аллергии
+      var allergyRadios = document.querySelectorAll('input[name="allergy"]');
+      var allergyDetailsGroup = document.getElementById('allergyDetailsGroup');
       
-      allergyRadios.forEach(radio => {
-        radio.addEventListener('change', function() {
-          if (this.value === 'yes') {
-            allergyDetailsGroup.style.display = 'block';
-          } else {
-            allergyDetailsGroup.style.display = 'none';
-          }
-        });
-      });
-
-      function startCountdown() {
-        const weddingDate = new Date('2026-06-12T15:00:00');
-        function updateTimer() {
-          const now = new Date();
-          const diff = weddingDate - now;
-          if (diff <= 0) {
-            document.getElementById('days').textContent = '00';
-            document.getElementById('hours').textContent = '00';
-            document.getElementById('minutes').textContent = '00';
-            document.getElementById('seconds').textContent = '00';
-            return;
-          }
-          const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-          const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-          const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-          const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-          document.getElementById('days').textContent = days < 10 ? '0' + days : days;
-          document.getElementById('hours').textContent = hours < 10 ? '0' + hours : hours;
-          document.getElementById('minutes').textContent = minutes < 10 ? '0' + minutes : minutes;
-          document.getElementById('seconds').textContent = seconds < 10 ? '0' + seconds : seconds;
+      if (allergyRadios.length > 0 && allergyDetailsGroup) {
+        for (var r = 0; r < allergyRadios.length; r++) {
+          allergyRadios[r].addEventListener('change', function() {
+            if (this.value === 'yes') {
+              allergyDetailsGroup.style.display = 'block';
+            } else {
+              allergyDetailsGroup.style.display = 'none';
+            }
+          });
         }
-        updateTimer();
-        setInterval(updateTimer, 1000);
       }
-      startCountdown();
+
+      // Исправленный таймер обратного отсчёта с кросс-браузерной поддержкой
+      function startCountdown() {
+        // Проверяем существование элементов таймера
+        var daysEl = document.getElementById('days');
+        var hoursEl = document.getElementById('hours');
+        var minutesEl = document.getElementById('minutes');
+        var secondsEl = document.getElementById('seconds');
+        
+        if (!daysEl || !hoursEl || !minutesEl || !secondsEl) {
+          console.warn('Элементы таймера не найдены');
+          return;
+        }
+
+        // Устанавливаем начальные значения
+        daysEl.textContent = '00';
+        hoursEl.textContent = '00';
+        minutesEl.textContent = '00';
+        secondsEl.textContent = '00';
+
+        // Дата свадьбы: 12 июня 2026, 15:00
+        var weddingDate = new Date(2026, 5, 12, 15, 0, 0);
+        
+        function updateTimer() {
+          try {
+            var now = new Date();
+            var diff = weddingDate.getTime() - now.getTime();
+            
+            if (diff <= 0) {
+              if (daysEl) daysEl.textContent = '00';
+              if (hoursEl) hoursEl.textContent = '00';
+              if (minutesEl) minutesEl.textContent = '00';
+              if (secondsEl) secondsEl.textContent = '00';
+              return;
+            }
+            
+            var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            if (daysEl) daysEl.textContent = days < 10 ? '0' + days : days;
+            if (hoursEl) hoursEl.textContent = hours < 10 ? '0' + hours : hours;
+            if (minutesEl) minutesEl.textContent = minutes < 10 ? '0' + minutes : minutes;
+            if (secondsEl) secondsEl.textContent = seconds < 10 ? '0' + seconds : seconds;
+          } catch(e) {
+            console.warn('Ошибка обновления таймера:', e);
+          }
+        }
+        
+        // Сразу обновляем таймер
+        updateTimer();
+        
+        // Запускаем обновление каждую секунду
+        var timerInterval = setInterval(updateTimer, 1000);
+        
+        // Очистка интервала при уходе со страницы
+        if (window.addEventListener) {
+          window.addEventListener('beforeunload', function() {
+            clearInterval(timerInterval);
+          });
+        } else if (window.attachEvent) {
+          window.attachEvent('onbeforeunload', function() {
+            clearInterval(timerInterval);
+          });
+        }
+      }
+      
+      // Запускаем таймер с учётом загрузки DOM
+      if (document.readyState === 'complete') {
+        startCountdown();
+      } else {
+        window.addEventListener('load', startCountdown);
+      }
     })();
   </script>
 </body>
