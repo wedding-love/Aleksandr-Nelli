@@ -48,7 +48,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 60px 20px 50px;
+      padding: 40px 20px 50px;
       background-image: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.7) 100%), 
                         url('пара.jpg');
       background-size: cover;
@@ -58,13 +58,13 @@
     }
     .caller-info {
       text-align: center;
-      margin-top: 20px;
+      margin-top: 0;
       color: #fff;
     }
     .caller-subtitle {
-      font-size: 18px;
+      font-size: 16px;
       letter-spacing: 2px;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       opacity: 0.85;
       font-weight: 400;
       text-transform: uppercase;
@@ -72,12 +72,13 @@
       animation: fadeInDown 1s ease forwards;
     }
     .caller-name {
-      font-size: 34px;
+      font-size: 30px;
       font-weight: 600;
-      letter-spacing: 4px;
+      letter-spacing: 3px;
       font-family: 'Cormorant Garamond', serif;
       animation: fadeInDown 1s ease 0.2s forwards;
       opacity: 0;
+      white-space: nowrap;
     }
     @keyframes fadeInDown {
       from { opacity: 0; transform: translateY(-20px); }
@@ -189,17 +190,18 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 80px 30px 60px;
+      padding: 40px 20px 60px;
       color: #fff;
       flex-shrink: 0;
     }
     .hero-names {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 36px;
+      font-size: 26px;
       text-align: center;
-      letter-spacing: 6px;
+      letter-spacing: 4px;
       text-transform: uppercase;
       font-weight: 600;
+      white-space: nowrap;
     }
     .hero-date {
       font-family: 'Cormorant Garamond', serif;
@@ -207,7 +209,7 @@
       text-align: center;
       letter-spacing: 8px;
       opacity: 0.9;
-      margin-top: 12px;
+      margin-top: 8px;
       font-weight: 400;
       text-transform: uppercase;
     }
@@ -507,22 +509,13 @@
       display: flex;
       gap: 15px;
       flex-wrap: wrap;
-      margin-bottom: 15px;
+      justify-content: center;
     }
     .dresscode-color {
       width: 60px;
       height: 60px;
       border-radius: 50%;
       border: 2px solid #EAE3D9;
-    }
-    .dresscode-color-label {
-      width: 100%;
-      max-width: 320px;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 18px;
-      color: #6B5E53;
-      text-align: center;
-      font-style: italic;
     }
 
     /* Пожелания */
@@ -565,6 +558,71 @@
       text-align: left;
       border-left: 2px solid #1E1E1E;
       padding-left: 20px;
+      font-style: italic;
+    }
+
+    /* Контакты */
+    .inv-contacts {
+      background-color: #FFFFFF;
+      color: #000000;
+      padding: 80px 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .contacts-header {
+      width: 100%;
+      max-width: 320px;
+      margin-bottom: 35px;
+    }
+    .contacts-tag {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      text-align: right;
+      margin-bottom: -8px;
+      letter-spacing: 3px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .contacts-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 58px;
+      line-height: 0.9;
+      letter-spacing: 0px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .contact-item {
+      width: 100%;
+      max-width: 320px;
+      margin-bottom: 25px;
+      text-align: left;
+    }
+    .contact-role {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: 20px;
+      margin-bottom: 4px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .contact-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 500;
+      font-style: italic;
+      margin-bottom: 4px;
+    }
+    .contact-phone {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      color: #333;
+      font-weight: 600;
+    }
+    .contact-note {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      color: #6B5E53;
       font-style: italic;
     }
 
@@ -804,6 +862,14 @@
     }
 
     @media (max-width: 400px) {
+      .caller-name {
+        font-size: 24px;
+        letter-spacing: 2px;
+      }
+      .hero-names {
+        font-size: 22px;
+        letter-spacing: 3px;
+      }
       .location-title, .timing-title, .invite-title {
         font-size: 54px;
       }
@@ -839,7 +905,7 @@
     <div class="call-screen" id="callScreen">
       <div class="caller-info">
         <div class="caller-subtitle">входящий вызов</div>
-        <div class="caller-name">АЛЕКСАНДР и НЕЛЛИ</div>
+        <div class="caller-name">АЛЕКСАНДР И НЕЛЛИ</div>
       </div>
       <div class="slider-container">
         <div class="slider-track" id="sliderTrack">
@@ -872,15 +938,14 @@
           Дорогие друзья, мы рады пригласить вас на нашу свадьбу. Это будет особенный день, и нам важно, чтобы вы были рядом.
         </p>
         <div class="calendar-wrap">
-          <div class="calendar-month">Август 2026</div>
+          <div class="calendar-month">Июнь 2026</div>
           <div class="calendar-grid">
             <div class="day-name">ПН</div><div class="day-name">ВТ</div><div class="day-name">СР</div><div class="day-name">ЧТ</div><div class="day-name">ПТ</div><div class="day-name">СБ</div><div class="day-name">ВС</div>
-            <div class="day"></div><div class="day"></div><div class="day"></div><div class="day"></div><div class="day"></div><div class="day">1</div><div class="day">2</div>
-            <div class="day">3</div><div class="day">4</div><div class="day">5</div><div class="day">6</div><div class="day">7</div><div class="day">8</div><div class="day">9</div>
-            <div class="day">10</div><div class="day">11</div><div class="day">12</div><div class="day">13</div><div class="day">14</div><div class="day">15</div><div class="day">16</div>
-            <div class="day">17</div><div class="day">18</div><div class="day">19</div><div class="day wedding-day">20</div><div class="day">21</div><div class="day">22</div><div class="day">23</div>
-            <div class="day">24</div><div class="day">25</div><div class="day">26</div><div class="day">27</div><div class="day">28</div><div class="day">29</div><div class="day">30</div>
-            <div class="day">31</div>
+            <div class="day">1</div><div class="day">2</div><div class="day">3</div><div class="day">4</div><div class="day">5</div><div class="day">6</div><div class="day">7</div>
+            <div class="day">8</div><div class="day">9</div><div class="day">10</div><div class="day">11</div><div class="day wedding-day">12</div><div class="day">13</div><div class="day">14</div>
+            <div class="day">15</div><div class="day">16</div><div class="day">17</div><div class="day">18</div><div class="day">19</div><div class="day">20</div><div class="day">21</div>
+            <div class="day">22</div><div class="day">23</div><div class="day">24</div><div class="day">25</div><div class="day">26</div><div class="day">27</div><div class="day">28</div>
+            <div class="day">29</div><div class="day">30</div>
           </div>
         </div>
         <div class="divider"></div>
@@ -927,20 +992,39 @@
           <div class="dresscode-color" style="background-color: #D8CBB9;"></div>
           <div class="dresscode-color" style="background-color: #5A0B11;"></div>
           <div class="dresscode-color" style="background-color: #000000;"></div>
-          <div class="dresscode-color" style="background-color: #F4C2C2;"></div>
+          <div class="dresscode-color" style="background-color: #F0C0C0;"></div>
         </div>
-        <p class="dresscode-color-label">#D8CBB9 &bull; #5A0B11 &bull; #000000 &bull; пудрово-розовый</p>
       </div>
 
       <!-- Пожелания -->
       <div class="inv-wishes fade-in-element">
         <div class="wishes-header">
           <span class="wishes-tag">[Пожелания]</span>
-          <h2 class="wishes-title">WISH<br>ES</h2>
+          <h2 class="wishes-title">WISHES</h2>
         </div>
         <p class="wishes-text">
           Самый ценный подарок для нас — ваше присутствие. Но если вы захотите нас порадовать, лучшим комплиментом станет хороший алкоголь для нашего бара. А если душа всё же попросит цветов — подарите нам растения для посадки в открытый грунт: они будут радовать нас долгие годы, напоминая о самом счастливом дне.
         </p>
+      </div>
+
+      <!-- Контакты -->
+      <div class="inv-contacts fade-in-element">
+        <div class="contacts-header">
+          <span class="contacts-tag">[Контакты]</span>
+          <h2 class="contacts-title">CONT<br>ACTS</h2>
+        </div>
+        <div class="contact-item">
+          <div class="contact-role">Невеста</div>
+          <div class="contact-name">Нелли</div>
+          <a href="tel:89803858161" class="contact-phone" style="color: #1E1E1E; text-decoration: none;">8 980 385-81-61</a>
+          <div class="contact-note">Писать в Max</div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-role">Жених</div>
+          <div class="contact-name">Александр</div>
+          <a href="tel:89087866868" class="contact-phone" style="color: #1E1E1E; text-decoration: none;">8 908 786-68-68</a>
+          <div class="contact-note">Писать в Max</div>
+        </div>
       </div>
 
       <!-- АНКЕТА ГОСТЯ -->
@@ -981,7 +1065,7 @@
           <div class="form-group">
             <label class="form-label">Есть ли у вас пищевая аллергия?</label>
             <div class="radio-group">
-              <label class="radio-option"><input type="radio" name="allergy" value="no" checked> Нет</label>
+              <label class="radio-option"><input type="radio" name="allergy" value="no"> Нет</label>
               <label class="radio-option"><input type="radio" name="allergy" value="yes"> Да</label>
             </div>
           </div>
@@ -1133,9 +1217,9 @@
         });
       });
 
-      // Таймер обратного отсчёта (дата: 20 августа 2026)
+      // Таймер обратного отсчёта (дата: 12 июня 2026)
       function startCountdown() {
-        const weddingDate = new Date('2026-08-20T15:00:00');
+        const weddingDate = new Date('2026-06-12T15:00:00');
         function updateTimer() {
           const now = new Date();
           const diff = weddingDate - now;
