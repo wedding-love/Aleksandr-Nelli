@@ -48,7 +48,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 40px 20px 50px;
+      padding: 30px 20px 50px;
       background-image: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.7) 100%), 
                         url('пара.jpg');
       background-size: cover;
@@ -190,7 +190,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 40px 20px 60px;
+      padding: 25px 20px 60px;
       color: #fff;
       flex-shrink: 0;
     }
@@ -586,42 +586,53 @@
     }
     .contacts-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 58px;
+      font-size: 48px;
       line-height: 0.9;
       letter-spacing: 0px;
       text-transform: uppercase;
       font-weight: 700;
     }
-    .contact-item {
+    .contacts-row {
       width: 100%;
       max-width: 320px;
-      margin-bottom: 25px;
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    .contact-card {
+      flex: 1;
+      min-width: 140px;
       text-align: left;
     }
     .contact-role {
       font-family: 'Cormorant Garamond', serif;
       font-weight: 700;
-      font-size: 20px;
-      margin-bottom: 4px;
+      font-size: 16px;
+      margin-bottom: 2px;
       letter-spacing: 1px;
       text-transform: uppercase;
+      color: #6B5E53;
     }
     .contact-name {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 22px;
+      font-size: 20px;
       font-weight: 500;
       font-style: italic;
-      margin-bottom: 4px;
+      margin-bottom: 2px;
     }
     .contact-phone {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
-      color: #333;
+      font-size: 18px;
       font-weight: 600;
+      color: #1E1E1E;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 2px;
     }
     .contact-note {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 16px;
+      font-size: 14px;
       color: #6B5E53;
       font-style: italic;
     }
@@ -932,8 +943,8 @@
       </div>
 
       <div class="inv-details fade-in-element">
-        <span class="invite-tag">[Детали]</span>
-        <h2 class="invite-title">INVI<br>TATION</h2>
+        <span class="invite-tag">[Приглашение]</span>
+        <h2 class="invite-title">INVITA<br>TIONS</h2>
         <p class="invite-desc">
           Дорогие друзья, мы рады пригласить вас на нашу свадьбу. Это будет особенный день, и нам важно, чтобы вы были рядом.
         </p>
@@ -1005,26 +1016,6 @@
         <p class="wishes-text">
           Самый ценный подарок для нас — ваше присутствие. Но если вы захотите нас порадовать, лучшим комплиментом станет хороший алкоголь для нашего бара. А если душа всё же попросит цветов — подарите нам растения для посадки в открытый грунт: они будут радовать нас долгие годы, напоминая о самом счастливом дне.
         </p>
-      </div>
-
-      <!-- Контакты -->
-      <div class="inv-contacts fade-in-element">
-        <div class="contacts-header">
-          <span class="contacts-tag">[Контакты]</span>
-          <h2 class="contacts-title">CONT<br>ACTS</h2>
-        </div>
-        <div class="contact-item">
-          <div class="contact-role">Невеста</div>
-          <div class="contact-name">Нелли</div>
-          <a href="tel:89803858161" class="contact-phone" style="color: #1E1E1E; text-decoration: none;">8 980 385-81-61</a>
-          <div class="contact-note">Писать в Max</div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-role">Жених</div>
-          <div class="contact-name">Александр</div>
-          <a href="tel:89087866868" class="contact-phone" style="color: #1E1E1E; text-decoration: none;">8 908 786-68-68</a>
-          <div class="contact-note">Писать в Max</div>
-        </div>
       </div>
 
       <!-- АНКЕТА ГОСТЯ -->
@@ -1100,6 +1091,28 @@
           <div class="countdown-item">
             <span class="countdown-number" id="seconds">00</span>
             <span class="countdown-label">сек</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Контакты (после таймера) -->
+      <div class="inv-contacts fade-in-element">
+        <div class="contacts-header">
+          <span class="contacts-tag">[Контакты]</span>
+          <h2 class="contacts-title">CONTACTS</h2>
+        </div>
+        <div class="contacts-row">
+          <div class="contact-card">
+            <div class="contact-role">Невеста</div>
+            <div class="contact-name">Нелли</div>
+            <a href="tel:89803858161" class="contact-phone">8 980 385-81-61</a>
+            <div class="contact-note">Писать в Max</div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-role">Жених</div>
+            <div class="contact-name">Александр</div>
+            <a href="tel:89087866868" class="contact-phone">8 908 786-68-68</a>
+            <div class="contact-note">Писать в Max</div>
           </div>
         </div>
       </div>
