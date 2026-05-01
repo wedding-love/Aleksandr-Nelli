@@ -48,7 +48,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 60px 20px 50px;
+      padding: 40px 20px 50px;
       background-image: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.7) 100%), 
                         url('пара.jpg');
       background-size: cover;
@@ -58,7 +58,7 @@
     }
     .caller-info {
       text-align: center;
-      margin-top: 20px;
+      margin-top: 0;
       color: #fff;
     }
     .caller-subtitle {
@@ -78,6 +78,7 @@
       font-family: 'Cormorant Garamond', serif;
       animation: fadeInDown 1s ease 0.2s forwards;
       opacity: 0;
+      white-space: nowrap;
     }
     @keyframes fadeInDown {
       from { opacity: 0; transform: translateY(-20px); }
@@ -189,17 +190,18 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 80px 30px 60px;
+      padding: 50px 20px 60px;
       color: #fff;
       flex-shrink: 0;
     }
     .hero-names {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 36px;
+      font-size: 34px;
       text-align: center;
-      letter-spacing: 6px;
+      letter-spacing: 5px;
       text-transform: uppercase;
       font-weight: 600;
+      white-space: nowrap;
     }
     .hero-date {
       font-family: 'Cormorant Garamond', serif;
@@ -207,7 +209,7 @@
       text-align: center;
       letter-spacing: 8px;
       opacity: 0.9;
-      margin-top: 12px;
+      margin-top: 10px;
       font-weight: 400;
       text-transform: uppercase;
     }
@@ -850,6 +852,14 @@
     }
 
     @media (max-width: 400px) {
+      .caller-name {
+        font-size: 28px;
+        letter-spacing: 3px;
+      }
+      .hero-names {
+        font-size: 28px;
+        letter-spacing: 4px;
+      }
       .location-title, .timing-title, .invite-title {
         font-size: 54px;
       }
@@ -885,7 +895,7 @@
     <div class="call-screen" id="callScreen">
       <div class="caller-info">
         <div class="caller-subtitle">входящий вызов</div>
-        <div class="caller-name">АЛЕКСАНДР и НЕЛЛИ</div>
+        <div class="caller-name">АЛЕКСАНДР И НЕЛЛИ</div>
       </div>
       <div class="slider-container">
         <div class="slider-track" id="sliderTrack">
@@ -972,7 +982,7 @@
           <div class="dresscode-color" style="background-color: #D8CBB9;"></div>
           <div class="dresscode-color" style="background-color: #5A0B11;"></div>
           <div class="dresscode-color" style="background-color: #000000;"></div>
-          <div class="dresscode-color" style="background-color: #F0C0C0;"></div>
+          <div class="dresscode-color" style="background-color: #D4A5A5;"></div>
         </div>
       </div>
 
