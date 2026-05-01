@@ -225,16 +225,22 @@
       font-style: italic;
     }
 
-    /* Приглашение */
-    .inv-details {
+    /* ----- ОБЩИЕ СТИЛИ ДЛЯ ВСЕХ БЛОКОВ ----- */
+    .section-block {
       padding: 80px 30px;
-      background-color: #EAE3D9;
-      color: #1E1E1E;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
-    .invite-tag {
+    .section-block.light-bg {
+      background-color: #EAE3D9;
+      color: #1E1E1E;
+    }
+    .section-block.white-bg {
+      background-color: #FFFFFF;
+      color: #000000;
+    }
+    .section-tag {
       font-family: 'Cormorant Garamond', serif;
       font-size: 16px;
       text-align: right;
@@ -246,9 +252,9 @@
       font-weight: 600;
       text-transform: uppercase;
     }
-    .invite-title {
+    .section-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 64px;
+      font-size: 58px;
       line-height: 0.9;
       letter-spacing: 0px;
       text-transform: uppercase;
@@ -256,23 +262,28 @@
       text-align: left;
       width: 100%;
       max-width: 320px;
-      margin-bottom: 25px;
+      margin-bottom: 35px;
       color: #1E1E1E;
     }
-    .invite-desc {
+    .section-title.white-bg {
+      color: #000000;
+    }
+    .section-desc {
+      width: 100%;
+      max-width: 320px;
       font-family: 'Cormorant Garamond', serif;
       font-size: 20px;
       line-height: 1.6;
-      margin-bottom: 45px;
+      margin-bottom: 30px;
       text-align: left;
-      width: 100%;
-      max-width: 320px;
       border-left: 2px solid #1E1E1E;
       padding-left: 20px;
       color: #2B2B2B;
       font-weight: 500;
       font-style: italic;
     }
+
+    /* Календарь */
     .calendar-wrap {
       width: 100%;
       max-width: 320px;
@@ -323,36 +334,6 @@
     }
 
     /* Локация */
-    .inv-location {
-      background-color: #FFFFFF;
-      color: #000000;
-      padding: 80px 30px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .location-header {
-      width: 100%;
-      max-width: 320px;
-      margin-bottom: 35px;
-    }
-    .location-tag {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 16px;
-      text-align: right;
-      margin-bottom: -8px;
-      letter-spacing: 3px;
-      font-weight: 600;
-      text-transform: uppercase;
-    }
-    .location-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 72px;
-      line-height: 0.9;
-      letter-spacing: 0px;
-      text-transform: uppercase;
-      font-weight: 700;
-    }
     .location-info {
       width: 100%;
       max-width: 320px;
@@ -403,37 +384,6 @@
     }
 
     /* Тайминг */
-    .inv-timing {
-      background-color: #EAE3D9;
-      color: #1E1E1E;
-      padding: 80px 30px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .timing-header {
-      width: 100%;
-      max-width: 320px;
-      margin-bottom: 40px;
-    }
-    .timing-tag {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 16px;
-      text-align: right;
-      margin-bottom: -8px;
-      letter-spacing: 3px;
-      font-weight: 600;
-      text-transform: uppercase;
-    }
-    .timing-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 64px;
-      line-height: 0.9;
-      letter-spacing: 0px;
-      text-transform: uppercase;
-      font-weight: 700;
-      color: #1E1E1E;
-    }
     .timeline-list {
       width: 100%;
       max-width: 320px;
@@ -463,46 +413,6 @@
     }
 
     /* Дресс-код */
-    .inv-dresscode {
-      background-color: #FFFFFF;
-      color: #000000;
-      padding: 80px 30px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .dresscode-header {
-      width: 100%;
-      max-width: 320px;
-      margin-bottom: 35px;
-    }
-    .dresscode-tag {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 16px;
-      text-align: right;
-      margin-bottom: -8px;
-      letter-spacing: 3px;
-      font-weight: 600;
-      text-transform: uppercase;
-    }
-    .dresscode-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 58px;
-      line-height: 0.9;
-      letter-spacing: 0px;
-      text-transform: uppercase;
-      font-weight: 700;
-    }
-    .dresscode-text {
-      width: 100%;
-      max-width: 320px;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
-      line-height: 1.6;
-      margin-bottom: 30px;
-      text-align: left;
-      font-style: italic;
-    }
     .dresscode-colors {
       width: 100%;
       max-width: 320px;
@@ -518,80 +428,7 @@
       border: 2px solid #EAE3D9;
     }
 
-    /* Пожелания */
-    .inv-wishes {
-      background-color: #EAE3D9;
-      color: #1E1E1E;
-      padding: 80px 30px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .wishes-header {
-      width: 100%;
-      max-width: 320px;
-      margin-bottom: 35px;
-    }
-    .wishes-tag {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 16px;
-      text-align: right;
-      margin-bottom: -8px;
-      letter-spacing: 3px;
-      font-weight: 600;
-      text-transform: uppercase;
-    }
-    .wishes-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 58px;
-      line-height: 0.9;
-      letter-spacing: 0px;
-      text-transform: uppercase;
-      font-weight: 700;
-    }
-    .wishes-text {
-      width: 100%;
-      max-width: 320px;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
-      line-height: 1.6;
-      text-align: left;
-      border-left: 2px solid #1E1E1E;
-      padding-left: 20px;
-      font-style: italic;
-    }
-
     /* Контакты */
-    .inv-contacts {
-      background-color: #FFFFFF;
-      color: #000000;
-      padding: 80px 30px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .contacts-header {
-      width: 100%;
-      max-width: 320px;
-      margin-bottom: 35px;
-    }
-    .contacts-tag {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 16px;
-      text-align: right;
-      margin-bottom: -8px;
-      letter-spacing: 3px;
-      font-weight: 600;
-      text-transform: uppercase;
-    }
-    .contacts-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 48px;
-      line-height: 0.9;
-      letter-spacing: 0px;
-      text-transform: uppercase;
-      font-weight: 700;
-    }
     .contacts-row {
       width: 100%;
       max-width: 320px;
@@ -639,34 +476,12 @@
 
     /* ----- АНКЕТА ГОСТЯ ----- */
     .inv-form {
-      background-color: #FFFFFF;
-      color: #000000;
       padding: 80px 25px;
       display: flex;
       flex-direction: column;
       align-items: center;
-    }
-    .form-header {
-      width: 100%;
-      max-width: 340px;
-      margin-bottom: 35px;
-    }
-    .form-tag {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 16px;
-      text-align: right;
-      margin-bottom: -8px;
-      letter-spacing: 3px;
-      font-weight: 600;
-      text-transform: uppercase;
-    }
-    .form-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 58px;
-      line-height: 0.9;
-      letter-spacing: 0px;
-      text-transform: uppercase;
-      font-weight: 700;
+      background-color: #FFFFFF;
+      color: #000000;
     }
     .form-deadline {
       width: 100%;
@@ -708,27 +523,6 @@
       appearance: none;
     }
     .form-input:focus {
-      border-color: #4A3F35;
-    }
-    .form-select {
-      width: 100%;
-      padding: 14px 16px;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
-      border: 1px solid #D6C7B8;
-      background: #FAFAFA;
-      outline: none;
-      transition: border 0.2s;
-      color: #1E1E1E;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%231E1E1E' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 16px center;
-      background-size: 12px;
-    }
-    .form-select:focus {
       border-color: #4A3F35;
     }
     .radio-group {
@@ -881,8 +675,8 @@
         font-size: 22px;
         letter-spacing: 3px;
       }
-      .location-title, .timing-title, .invite-title {
-        font-size: 54px;
+      .section-title {
+        font-size: 48px;
       }
       .countdown-number {
         font-size: 42px;
@@ -893,13 +687,10 @@
       .inv-form {
         padding: 60px 20px;
       }
-      .form-title {
-        font-size: 48px;
-      }
       .form-label {
         font-size: 18px;
       }
-      .form-input, .form-select, .form-textarea {
+      .form-input, .form-textarea {
         font-size: 18px;
         padding: 12px 14px;
       }
@@ -942,10 +733,11 @@
         </div>
       </div>
 
-      <div class="inv-details fade-in-element">
-        <span class="invite-tag">[Приглашение]</span>
-        <h2 class="invite-title">INVITATIONS</h2>
-        <p class="invite-desc">
+      <!-- Приглашение -->
+      <div class="section-block light-bg fade-in-element">
+        <span class="section-tag">[Приглашение]</span>
+        <h2 class="section-title">INVITATION</h2>
+        <p class="section-desc">
           Дорогие друзья, мы рады пригласить вас на нашу свадьбу. Это будет особенный день, и нам важно, чтобы вы были рядом.
         </p>
         <div class="calendar-wrap">
@@ -962,11 +754,10 @@
         <div class="divider"></div>
       </div>
 
-      <div class="inv-location fade-in-element">
-        <div class="location-header">
-          <span class="location-tag">[Место]</span>
-          <h2 class="location-title">LOCATION</h2>
-        </div>
+      <!-- Место -->
+      <div class="section-block white-bg fade-in-element">
+        <span class="section-tag">[Место]</span>
+        <h2 class="section-title">LOCATION</h2>
         <div class="location-info">
           <div class="venue-name">Зал торжеств «Усадьба»</div>
           <div class="venue-address">Курортный посёлок Черниково, Старый Оскол</div>
@@ -977,11 +768,10 @@
         </div>
       </div>
 
-      <div class="inv-timing fade-in-element">
-        <div class="timing-header">
-          <span class="timing-tag">[Расписание]</span>
-          <h2 class="timing-title">TIMELINE</h2>
-        </div>
+      <!-- Расписание -->
+      <div class="section-block light-bg fade-in-element">
+        <span class="section-tag">[Расписание]</span>
+        <h2 class="section-title">TIMELINE</h2>
         <div class="timeline-list">
           <div class="time-item"><span class="time-value">15:30</span><span class="time-desc">Сбор гостей</span></div>
           <div class="time-item"><span class="time-value">16:00</span><span class="time-desc">Выездная регистрация</span></div>
@@ -991,12 +781,10 @@
       </div>
 
       <!-- Дресс-код -->
-      <div class="inv-dresscode fade-in-element">
-        <div class="dresscode-header">
-          <span class="dresscode-tag">[Дресс-код]</span>
-          <h2 class="dresscode-title">DRESS<br>CODE</h2>
-        </div>
-        <p class="dresscode-text">
+      <div class="section-block white-bg fade-in-element">
+        <span class="section-tag">[Дресс-код]</span>
+        <h2 class="section-title">DRESS CODE</h2>
+        <p class="section-desc" style="border: none; padding-left: 0;">
           Будем благодарны, если в своих нарядах вы поддержите цветовую палитру нашего праздника:
         </p>
         <div class="dresscode-colors">
@@ -1008,22 +796,18 @@
       </div>
 
       <!-- Пожелания -->
-      <div class="inv-wishes fade-in-element">
-        <div class="wishes-header">
-          <span class="wishes-tag">[Пожелания]</span>
-          <h2 class="wishes-title">WISHES</h2>
-        </div>
-        <p class="wishes-text">
+      <div class="section-block light-bg fade-in-element">
+        <span class="section-tag">[Пожелания]</span>
+        <h2 class="section-title">WISHES</h2>
+        <p class="section-desc">
           Самый ценный подарок для нас — ваше присутствие. Но если вы захотите нас порадовать, лучшим комплиментом станет хороший алкоголь для нашего бара. А если душа всё же попросит цветов — подарите нам растения для посадки в открытый грунт: они будут радовать нас долгие годы, напоминая о самом счастливом дне.
         </p>
       </div>
 
-      <!-- АНКЕТА ГОСТЯ -->
+      <!-- Анкета гостя -->
       <div class="inv-form fade-in-element">
-        <div class="form-header">
-          <span class="form-tag">[Анкета гостя]</span>
-          <h2 class="form-title">АНКЕТА<br>ГОСТЯ</h2>
-        </div>
+        <span class="section-tag">[Анкета гостя]</span>
+        <h2 class="section-title">RSVP</h2>
         <p class="form-deadline">Просим подтвердить присутствие до 1 июня</p>
 
         <form action="https://formspree.io/f/ВАШ_ИДЕНТИФИКАТОР" method="POST">
@@ -1070,6 +854,7 @@
         </form>
       </div>
 
+      <!-- Таймер -->
       <div class="countdown-section fade-in-element">
         <div class="countdown-title">До свадьбы осталось</div>
         <div class="countdown-row" id="countdownRow">
@@ -1095,12 +880,10 @@
         </div>
       </div>
 
-      <!-- Контакты (после таймера) -->
-      <div class="inv-contacts fade-in-element">
-        <div class="contacts-header">
-          <span class="contacts-tag">[Контакты]</span>
-          <h2 class="contacts-title">CONTACTS</h2>
-        </div>
+      <!-- Контакты -->
+      <div class="section-block white-bg fade-in-element">
+        <span class="section-tag">[Контакты]</span>
+        <h2 class="section-title">CONTACTS</h2>
         <div class="contacts-row">
           <div class="contact-card">
             <div class="contact-role">Невеста</div>
@@ -1216,7 +999,6 @@
         invScreen.addEventListener('scroll', handleScrollAnimation, { passive: true });
       }
 
-      // Логика показа/скрытия поля аллергии
       const allergyRadios = document.querySelectorAll('input[name="allergy"]');
       const allergyDetailsGroup = document.getElementById('allergyDetailsGroup');
       
@@ -1230,7 +1012,6 @@
         });
       });
 
-      // Таймер обратного отсчёта (дата: 12 июня 2026)
       function startCountdown() {
         const weddingDate = new Date('2026-06-12T15:00:00');
         function updateTimer() {
