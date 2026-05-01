@@ -230,7 +230,8 @@
       padding: 80px 30px;
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start;
+      width: 100%;
     }
     .section-block.light-bg {
       background-color: #EAE3D9;
@@ -240,19 +241,19 @@
       background-color: #FFFFFF;
       color: #000000;
     }
-    .section-tag {
+    .section-tag-en {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 16px;
-      text-align: right;
+      font-size: 14px;
+      text-align: left;
       width: 100%;
       max-width: 320px;
-      margin-bottom: -8px;
-      letter-spacing: 3px;
-      color: #4A3F35;
-      font-weight: 600;
-      text-transform: uppercase;
+      margin-bottom: -6px;
+      letter-spacing: 2px;
+      color: #6B5E53;
+      font-weight: 400;
+      text-transform: lowercase;
     }
-    .section-title {
+    .section-title-ru {
       font-family: 'Cormorant Garamond', serif;
       font-size: 58px;
       line-height: 0.9;
@@ -264,9 +265,6 @@
       max-width: 320px;
       margin-bottom: 35px;
       color: #1E1E1E;
-    }
-    .section-title.white-bg {
-      color: #000000;
     }
     .section-desc {
       width: 100%;
@@ -331,6 +329,7 @@
       height: 1px;
       background-color: #1E1E1E;
       margin-top: 50px;
+      align-self: center;
     }
 
     /* Локация */
@@ -359,6 +358,7 @@
       max-width: 340px;
       margin-top: 10px;
       text-align: center;
+      align-self: center;
     }
     .venue-image {
       width: 100%;
@@ -419,7 +419,6 @@
       display: flex;
       gap: 15px;
       flex-wrap: wrap;
-      justify-content: center;
     }
     .dresscode-color {
       width: 60px;
@@ -433,13 +432,11 @@
       width: 100%;
       max-width: 320px;
       display: flex;
-      justify-content: space-between;
-      gap: 15px;
+      justify-content: flex-start;
+      gap: 30px;
       flex-wrap: wrap;
     }
     .contact-card {
-      flex: 1;
-      min-width: 140px;
       text-align: left;
     }
     .contact-role {
@@ -476,12 +473,13 @@
 
     /* ----- АНКЕТА ГОСТЯ ----- */
     .inv-form {
-      padding: 80px 25px;
+      padding: 80px 30px;
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start;
       background-color: #FFFFFF;
       color: #000000;
+      width: 100%;
     }
     .form-deadline {
       width: 100%;
@@ -490,7 +488,7 @@
       font-size: 18px;
       color: #6B5E53;
       margin-bottom: 30px;
-      text-align: center;
+      text-align: left;
       font-style: italic;
     }
     .form-group {
@@ -615,10 +613,11 @@
     /* ----- ТАЙМЕР ----- */
     .countdown-section {
       background-color: #EAE3D9;
-      padding: 60px 20px 80px;
+      padding: 60px 30px 80px;
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start;
+      width: 100%;
     }
     .countdown-title {
       font-family: 'Cormorant Garamond', serif;
@@ -627,12 +626,11 @@
       margin-bottom: 25px;
       letter-spacing: 2px;
       color: #1E1E1E;
-      text-align: center;
     }
     .countdown-row {
       display: flex;
       align-items: baseline;
-      justify-content: center;
+      justify-content: flex-start;
       gap: 8px;
       flex-wrap: nowrap;
       white-space: nowrap;
@@ -675,7 +673,7 @@
         font-size: 22px;
         letter-spacing: 3px;
       }
-      .section-title {
+      .section-title-ru {
         font-size: 48px;
       }
       .countdown-number {
@@ -735,8 +733,8 @@
 
       <!-- Приглашение -->
       <div class="section-block light-bg fade-in-element">
-        <span class="section-tag">[Приглашение]</span>
-        <h2 class="section-title">INVITATION</h2>
+        <span class="section-tag-en">[invitation]</span>
+        <h2 class="section-title-ru">ПРИГЛАШЕНИЕ</h2>
         <p class="section-desc">
           Дорогие друзья, мы рады пригласить вас на нашу свадьбу. Это будет особенный день, и нам важно, чтобы вы были рядом.
         </p>
@@ -756,8 +754,8 @@
 
       <!-- Место -->
       <div class="section-block white-bg fade-in-element">
-        <span class="section-tag">[Место]</span>
-        <h2 class="section-title">LOCATION</h2>
+        <span class="section-tag-en">[location]</span>
+        <h2 class="section-title-ru">МЕСТО</h2>
         <div class="location-info">
           <div class="venue-name">Зал торжеств «Усадьба»</div>
           <div class="venue-address">Курортный посёлок Черниково, Старый Оскол</div>
@@ -770,8 +768,8 @@
 
       <!-- Расписание -->
       <div class="section-block light-bg fade-in-element">
-        <span class="section-tag">[Расписание]</span>
-        <h2 class="section-title">TIMELINE</h2>
+        <span class="section-tag-en">[timeline]</span>
+        <h2 class="section-title-ru">РАСПИСАНИЕ</h2>
         <div class="timeline-list">
           <div class="time-item"><span class="time-value">15:30</span><span class="time-desc">Сбор гостей</span></div>
           <div class="time-item"><span class="time-value">16:00</span><span class="time-desc">Выездная регистрация</span></div>
@@ -782,8 +780,8 @@
 
       <!-- Дресс-код -->
       <div class="section-block white-bg fade-in-element">
-        <span class="section-tag">[Дресс-код]</span>
-        <h2 class="section-title">DRESS CODE</h2>
+        <span class="section-tag-en">[dress code]</span>
+        <h2 class="section-title-ru">ДРЕСС-КОД</h2>
         <p class="section-desc" style="border: none; padding-left: 0;">
           Будем благодарны, если в своих нарядах вы поддержите цветовую палитру нашего праздника:
         </p>
@@ -797,8 +795,8 @@
 
       <!-- Пожелания -->
       <div class="section-block light-bg fade-in-element">
-        <span class="section-tag">[Пожелания]</span>
-        <h2 class="section-title">WISHES</h2>
+        <span class="section-tag-en">[wishes]</span>
+        <h2 class="section-title-ru">ПОЖЕЛАНИЯ</h2>
         <p class="section-desc">
           Самый ценный подарок для нас — ваше присутствие. Но если вы захотите нас порадовать, лучшим комплиментом станет хороший алкоголь для нашего бара. А если душа всё же попросит цветов — подарите нам растения для посадки в открытый грунт: они будут радовать нас долгие годы, напоминая о самом счастливом дне.
         </p>
@@ -806,8 +804,8 @@
 
       <!-- Анкета гостя -->
       <div class="inv-form fade-in-element">
-        <span class="section-tag">[Анкета гостя]</span>
-        <h2 class="section-title">RSVP</h2>
+        <span class="section-tag-en">[rsvp]</span>
+        <h2 class="section-title-ru">АНКЕТА ГОСТЯ</h2>
         <p class="form-deadline">Просим подтвердить присутствие до 1 июня</p>
 
         <form action="https://formspree.io/f/ВАШ_ИДЕНТИФИКАТОР" method="POST">
@@ -882,8 +880,8 @@
 
       <!-- Контакты -->
       <div class="section-block white-bg fade-in-element">
-        <span class="section-tag">[Контакты]</span>
-        <h2 class="section-title">CONTACTS</h2>
+        <span class="section-tag-en">[contacts]</span>
+        <h2 class="section-title-ru">КОНТАКТЫ</h2>
         <div class="contacts-row">
           <div class="contact-card">
             <div class="contact-role">Невеста</div>
