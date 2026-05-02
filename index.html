@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -511,15 +512,16 @@
       width: 100%;
       max-width: 320px;
       display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
+      gap: 10px;
+      flex-wrap: nowrap;
       justify-content: center;
     }
     .dresscode-color {
-      width: 60px;
-      height: 60px;
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
       border: 2px solid #EAE3D9;
+      flex-shrink: 0;
     }
 
     /* Пожелания */
@@ -890,6 +892,13 @@
         font-size: 18px;
         gap: 8px;
       }
+      .dresscode-color {
+        width: 40px;
+        height: 40px;
+      }
+      .dresscode-colors {
+        gap: 8px;
+      }
     }
   </style>
 </head>
@@ -974,7 +983,7 @@
         </div>
       </div>
 
-      <!-- Дресс-код -->
+      <!-- Дресс-код (обновлён) -->
       <div class="inv-dresscode fade-in-element">
         <div class="dresscode-header">
           <span class="dresscode-tag">[Дресс-код]</span>
@@ -986,8 +995,9 @@
         <div class="dresscode-colors">
           <div class="dresscode-color" style="background-color: #D8CBB9;"></div>
           <div class="dresscode-color" style="background-color: #5A0B11;"></div>
-          <div class="dresscode-color" style="background-color: #000000;"></div>
+          <div class="dresscode-color" style="background-color: #90909C;"></div>
           <div class="dresscode-color" style="background-color: #D4A5A5;"></div>
+          <div class="dresscode-color" style="background-color: #000000;"></div>
         </div>
       </div>
 
@@ -1105,7 +1115,6 @@
 
   <script>
     (function() {
-      // Проверка поддержки основных функций
       if (!document.getElementById || !window.addEventListener) {
         console.warn('Браузер не поддерживает необходимые функции');
         return;
@@ -1116,7 +1125,6 @@
       var callScreen = document.getElementById('callScreen');
       var invScreen = document.getElementById('invScreen');
       
-      // Проверка наличия элементов
       if (!track || !btn || !callScreen || !invScreen) {
         console.warn('Не все необходимые элементы найдены');
         return;
@@ -1190,7 +1198,6 @@
         }, 150);
       }
 
-      // Добавляем обработчики событий с проверкой
       if (btn) {
         btn.addEventListener('touchstart', onDragStart, {passive: false});
         btn.addEventListener('mousedown', onDragStart);
@@ -1230,7 +1237,6 @@
         invScreen.addEventListener('scroll', handleScrollAnimation, { passive: true });
       }
 
-      // Логика для аллергии
       var allergyRadios = document.querySelectorAll('input[name="allergy"]');
       var allergyDetailsGroup = document.getElementById('allergyDetailsGroup');
       
@@ -1246,9 +1252,7 @@
         }
       }
 
-      // Исправленный таймер обратного отсчёта с кросс-браузерной поддержкой
       function startCountdown() {
-        // Проверяем существование элементов таймера
         var daysEl = document.getElementById('days');
         var hoursEl = document.getElementById('hours');
         var minutesEl = document.getElementById('minutes');
@@ -1259,13 +1263,11 @@
           return;
         }
 
-        // Устанавливаем начальные значения
         daysEl.textContent = '00';
         hoursEl.textContent = '00';
         minutesEl.textContent = '00';
         secondsEl.textContent = '00';
 
-        // Дата свадьбы: 12 июня 2026, 15:00
         var weddingDate = new Date(2026, 5, 12, 15, 0, 0);
         
         function updateTimer() {
@@ -1295,13 +1297,10 @@
           }
         }
         
-        // Сразу обновляем таймер
         updateTimer();
         
-        // Запускаем обновление каждую секунду
         var timerInterval = setInterval(updateTimer, 1000);
         
-        // Очистка интервала при уходе со страницы
         if (window.addEventListener) {
           window.addEventListener('beforeunload', function() {
             clearInterval(timerInterval);
@@ -1313,7 +1312,6 @@
         }
       }
       
-      // Запускаем таймер с учётом загрузки DOM
       if (document.readyState === 'complete') {
         startCountdown();
       } else {
