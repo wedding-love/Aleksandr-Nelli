@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -73,7 +72,7 @@
       animation: fadeInDown 1s ease forwards;
     }
     .caller-name {
-      font-size: 30px; /* Уменьшено с 34px */
+      font-size: 30px;
       font-weight: 600;
       letter-spacing: 4px;
       font-family: 'Cormorant Garamond', serif;
@@ -200,7 +199,7 @@
     }
     .hero-names {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 30px; /* Уменьшено с 34px */
+      font-size: 30px;
       letter-spacing: 5px;
       text-transform: uppercase;
       font-weight: 600;
@@ -858,11 +857,11 @@
 
     @media (max-width: 400px) {
       .caller-name {
-        font-size: 26px; /* Уменьшено с 28px */
+        font-size: 26px;
         letter-spacing: 3px;
       }
       .hero-names {
-        font-size: 26px; /* Уменьшено с 28px */
+        font-size: 26px;
         letter-spacing: 4px;
       }
       .location-title, .timing-title, .invite-title {
@@ -1003,7 +1002,7 @@
         </p>
       </div>
 
-      <!-- АНКЕТА ГОСТЯ -->
+      <!-- АНКЕТА ГОСТЯ (ИСПРАВЛЕНО) -->
       <div class="inv-form fade-in-element">
         <div class="form-header">
           <span class="form-tag">[Анкета гостя]</span>
@@ -1020,29 +1019,29 @@
           <div class="form-group">
             <label class="form-label">Вы планируете присутствовать?</label>
             <div class="radio-group">
-              <label class="radio-option"><input type="radio" name="attendance" value="yes" required> Да, с радостью</label>
-              <label class="radio-option"><input type="radio" name="attendance" value="no"> К сожалению, нет</label>
+              <label class="radio-option"><input type="radio" name="attendance" value="Да, с радостью" required> Да, с радостью</label>
+              <label class="radio-option"><input type="radio" name="attendance" value="К сожалению, нет"> К сожалению, нет</label>
             </div>
           </div>
 
           <div class="form-group">
             <label class="form-label">Предпочтения по напиткам</label>
             <div class="checkbox-group">
-              <label class="checkbox-option"><input type="checkbox" name="drink" value="red_wine"> Вино красное</label>
-              <label class="checkbox-option"><input type="checkbox" name="drink" value="white_wine"> Вино белое</label>
-              <label class="checkbox-option"><input type="checkbox" name="drink" value="champagne"> Шампанское</label>
-              <label class="checkbox-option"><input type="checkbox" name="drink" value="whiskey"> Виски</label>
-              <label class="checkbox-option"><input type="checkbox" name="drink" value="cognac"> Коньяк</label>
-              <label class="checkbox-option"><input type="checkbox" name="drink" value="vodka"> Водка</label>
-              <label class="checkbox-option"><input type="checkbox" name="drink" value="soft"> Безалкогольное</label>
+              <label class="checkbox-option"><input type="checkbox" name="drink" value="Вино красное"> Вино красное</label>
+              <label class="checkbox-option"><input type="checkbox" name="drink" value="Вино белое"> Вино белое</label>
+              <label class="checkbox-option"><input type="checkbox" name="drink" value="Шампанское"> Шампанское</label>
+              <label class="checkbox-option"><input type="checkbox" name="drink" value="Виски"> Виски</label>
+              <label class="checkbox-option"><input type="checkbox" name="drink" value="Коньяк"> Коньяк</label>
+              <label class="checkbox-option"><input type="checkbox" name="drink" value="Водка"> Водка</label>
+              <label class="checkbox-option"><input type="checkbox" name="drink" value="Безалкогольное"> Безалкогольное</label>
             </div>
           </div>
 
           <div class="form-group">
             <label class="form-label">Есть ли у вас пищевая аллергия?</label>
             <div class="radio-group">
-              <label class="radio-option"><input type="radio" name="allergy" value="no"> Нет</label>
-              <label class="radio-option"><input type="radio" name="allergy" value="yes"> Да</label>
+              <label class="radio-option"><input type="radio" name="allergy" value="Нет"> Нет</label>
+              <label class="radio-option"><input type="radio" name="allergy" value="Да"> Да</label>
             </div>
           </div>
 
@@ -1238,7 +1237,7 @@
       if (allergyRadios.length > 0 && allergyDetailsGroup) {
         for (var r = 0; r < allergyRadios.length; r++) {
           allergyRadios[r].addEventListener('change', function() {
-            if (this.value === 'yes') {
+            if (this.value === 'Да') {
               allergyDetailsGroup.style.display = 'block';
             } else {
               allergyDetailsGroup.style.display = 'none';
